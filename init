@@ -1,0 +1,82 @@
+#!/bin/bash
+
+type git > /dev/null 2>&1 || {
+    echo >&2 "Please install git.";
+    exit 1;
+}
+
+type pip > /dev/null 2>&1 || {
+    echo >&2 "Please install pip.";
+    exit 1;
+}
+
+type powerline > /dev/null 2>&1 || {
+    echo >&2 "Please install Powerline: https://powerline.readthedocs.org/en/latest/installation.html";
+    exit 1;
+}
+
+cd ~
+mkdir -p bin/
+cd bin/
+wget https://gist.githubusercontent.com/gitaarik/6103330/raw/git_bash_prompt.sh
+mv git_bash_prompt.sh git-prompt
+chmod +x git-prompt
+
+cd ~
+mkdir -p .bash_plugins/
+cd .bash_plugins/
+
+cd ~
+mkdir -p dev/
+cd ~/dev/
+
+git clone git@github.com:gitaarik/bash.git
+cd bash 
+git pull
+./init
+cd ..
+
+git clone git@github.com:gitaarik/gitconfig.git
+cd gitconfig
+git pull
+./init
+cd ..
+
+git clone git@github.com:gitaarik/vimrc.git
+cd vimrc
+git pull
+git submodule update --init --recursive
+./init
+cd ..
+
+git clone git@github.com:gitaarik/tmuxconf.git
+cd tmuxconf
+git pull
+git submodule update --init --recursive
+./init
+cd ..
+
+git clone git@github.com:gitaarik/screenrc.git
+cd screenrc
+git pull
+./init
+cd ..
+
+git clone git@github.com:gitaarik/markjump.git
+cd markjump
+git pull
+./init
+cd ..
+
+git clone git@github.com:gitaarik/pip-bash.git
+cd pip-bash
+git pull
+./init
+cd ..
+
+if [[ $OSTYPE == darwin* ]]; then
+    git clone git@github.com:gitaarik/homebrew-bash.git
+    cd homebrew-bash
+    ./init
+    cd ..
+fi
