@@ -30,52 +30,68 @@ cd ~
 mkdir -p dev/
 cd ~/dev/
 
-git clone git@github.com:gitaarik/bash.git
+if [ ! -d bash ]; then
+    git clone git@github.com:gitaarik/bash.git
+fi
 cd bash 
 git pull
 ./init
 cd ..
 
-git clone git@github.com:gitaarik/gitconfig.git
+if [ ! -d gitconfig ]; then
+    git clone git@github.com:gitaarik/gitconfig.git
+fi
 cd gitconfig
 git pull
 ./init
 cd ..
 
-git clone git@github.com:gitaarik/vimrc.git
+if [ ! -d vimrc ]; then
+    git clone git@github.com:gitaarik/vimrc.git
+fi
 cd vimrc
 git pull
 git submodule update --init --recursive
 ./init
 cd ..
 
-git clone git@github.com:gitaarik/tmuxconf.git
+if [ ! -d tmuxconf ]; then
+    git clone git@github.com:gitaarik/tmuxconf.git
+fi
 cd tmuxconf
 git pull
 git submodule update --init --recursive
 ./init
 cd ..
 
-git clone git@github.com:gitaarik/screenrc.git
+if [ ! -d screenrc ]; then
+    git clone git@github.com:gitaarik/screenrc.git
+fi
 cd screenrc
 git pull
 ./init
 cd ..
 
-git clone git@github.com:gitaarik/markjump.git
+if [ ! -d markjump ]; then
+    git clone git@github.com:gitaarik/markjump.git
+fi
 cd markjump
 git pull
 ./init
 cd ..
 
-git clone git@github.com:gitaarik/pip-bash.git
+if [ ! -d pip-bash ]; then
+    git clone git@github.com:gitaarik/pip-bash.git
+fi
 cd pip-bash
 git pull
 ./init
 cd ..
 
 if [[ $OSTYPE == darwin* ]]; then
-    git clone git@github.com:gitaarik/homebrew-bash.git
+    if [ ! -d homebrew-bash ]; then
+        git clone git@github.com:gitaarik/homebrew-bash.git
+    fi
     cd homebrew-bash
     ./init
     cd ..
