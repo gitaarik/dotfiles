@@ -15,6 +15,11 @@ type powerline > /dev/null 2>&1 || {
     exit 1;
 }
 
+type wget > /dev/null 2>&1 || {
+    echo >&2 "Please install wget.";
+    exit 1;
+}
+
 cd ~
 mkdir -p bin/
 cd bin/
