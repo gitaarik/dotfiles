@@ -94,10 +94,14 @@ git pull
 cd ..
 
 if [[ $OSTYPE == darwin* ]]; then
+
     if [ ! -d homebrew-bash ]; then
         git clone git@github.com:gitaarik/homebrew-bash.git
     fi
     cd homebrew-bash
     ./init
     cd ..
+
+    echo '. ~/.bashrc' > ~/.bash_profile
+
 fi
