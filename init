@@ -20,6 +20,13 @@ type wget > /dev/null 2>&1 || {
     exit 1;
 }
 
+# On some systems the `site-packages` dir is called `dist-packages`. In
+# that case, make a symlink from `site-packages` to `dist-packages`
+cd /usr/local/lib/python2.7/
+if [ -d dist-packages ]; then
+    ln -s dist-packages site-packages
+fi
+
 cd ~
 mkdir -p bin/
 cd bin/
