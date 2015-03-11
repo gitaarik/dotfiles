@@ -34,30 +34,40 @@ wget https://gist.githubusercontent.com/gitaarik/6103330/raw/git_bash_prompt.sh
 mv git_bash_prompt.sh git-prompt
 chmod +x git-prompt
 
-cd ~
+cd ~/dev/
 mkdir -p .bash_plugins/
 cd .bash_plugins/
 
-cd ~
-mkdir -p dev/
 cd ~/dev/
+mkdir -p dev/
+cd dev/
 
+echo
+echo "bash"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d bash ]; then
     git clone git@github.com:gitaarik/bash.git
 fi
 cd bash 
 git pull
 ./init
-cd ..
 
+echo
+echo "gitconfig"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d gitconfig ]; then
     git clone git@github.com:gitaarik/gitconfig.git
 fi
 cd gitconfig
 git pull
 ./init
-cd ..
 
+echo
+echo "vimrc"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d vimrc ]; then
     git clone git@github.com:gitaarik/vimrc.git
 fi
@@ -65,8 +75,11 @@ cd vimrc
 git pull
 git submodule update --init --recursive
 ./init
-cd ..
 
+echo
+echo "tmuxconf"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d tmuxconf ]; then
     git clone git@github.com:gitaarik/tmuxconf.git
 fi
@@ -74,41 +87,53 @@ cd tmuxconf
 git pull
 git submodule update --init --recursive
 ./init
-cd ..
 
+echo
+echo "screenrc"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d screenrc ]; then
     git clone git@github.com:gitaarik/screenrc.git
 fi
 cd screenrc
 git pull
 ./init
-cd ..
 
+echo
+echo "markjump"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d markjump ]; then
     git clone git@github.com:gitaarik/markjump.git
 fi
 cd markjump
 git pull
 ./init
-cd ..
 
+echo
+echo "pip-bash"
+echo "-------------------------"
+cd ~/dev/
 if [ ! -d pip-bash ]; then
     git clone git@github.com:gitaarik/pip-bash.git
 fi
 cd pip-bash
 git pull
 ./init
-cd ..
 
 if [[ $OSTYPE == darwin* ]]; then
 
+    cd ~/dev/
     if [ ! -d homebrew-bash ]; then
         git clone git@github.com:gitaarik/homebrew-bash.git
     fi
     cd homebrew-bash
     ./init
-    cd ..
 
-    echo '. ~/.bashrc' > ~/.bash_profile
+    cd ~
+
+    if grep -Fxq ". ~/.bashrc" ~/.bash_profile; then
+        echo '. ~/.bashrc' > ~/.bash_profile
+    fi
 
 fi
