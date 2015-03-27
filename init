@@ -11,17 +11,22 @@ type pip > /dev/null 2>&1 || {
 }
 
 type powerline > /dev/null 2>&1 || {
-    echo >&2 "Please install Powerline: https://powerline.readthedocs.org/en/latest/installation.html";
+    echo >&2 "Please install Powerline: https://powerline.readthedocs.org/en/latest/installation.html (required for Tmux and Vim)";
     exit 1;
 }
 
 type wget > /dev/null 2>&1 || {
-    echo >&2 "Please install wget.";
+    echo >&2 "Please install wget (required for this script).";
     exit 1;
 }
 
 type ctags > /dev/null 2>&1 || {
-    echo >&2 "Please install ctags.";
+    echo >&2 "Please install ctags (required for Vim -> easytags).";
+    exit 1;
+}
+
+type cmake > /dev/null 2>&1 || {
+    echo >&2 "Please install cmake (required for Vim -> YouCompleteMe).";
     exit 1;
 }
 
