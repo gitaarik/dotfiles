@@ -64,6 +64,17 @@ git pull
 ./init
 
 echo
+echo "sshconfig"
+echo "-------------------------"
+cd ~/dev/
+if [ ! -d bash ]; then
+    git clone git@bitbucket.org:gitaarik/sshconfig.git
+fi
+cd sshconfig
+git pull
+./init
+
+echo
 echo "gitconfig"
 echo "-------------------------"
 cd ~/dev/
@@ -142,7 +153,7 @@ if [[ $OSTYPE == darwin* ]]; then
 
     cd ~
 
-    if grep -Fxq ". ~/.bashrc" ~/.bash_profile; then
+    if [ ! -f ~/.bash_profile ] || grep -Fxq ". ~/.bashrc" ~/.bash_profile; then
         echo '. ~/.bashrc' > ~/.bash_profile
     fi
 
