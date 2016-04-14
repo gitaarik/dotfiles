@@ -142,6 +142,23 @@ cd pip-bash
 git pull
 ./init
 
+echo
+echo "weather"
+echo "-------------------------"
+cd ~/dev/
+if [ ! -d weather-cli ]; then
+    git clone git@github.com:gitaarik/weather-cli.git
+fi
+cd weather-cli
+git pull
+./init
+
+echo
+echo ".agignore"
+echo "-------------------------"
+cd ~
+echo 'node_modules/' > .agignore
+
 if [[ $OSTYPE == darwin* ]]; then
 
     cd ~/dev/
