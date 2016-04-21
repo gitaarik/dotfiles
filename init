@@ -41,8 +41,8 @@ cd ~
 mkdir -p bin/
 cd bin/
 wget https://gist.githubusercontent.com/gitaarik/6103330/raw/git_bash_prompt.sh
-mv git_bash_prompt.sh git-prompt
-chmod +x git-prompt
+mv git_bash_prompt.sh gitprompt
+chmod +x gitprompt
 
 cd ~/dev/
 mkdir -p .bash_plugins/
