@@ -10,6 +10,11 @@ type pip > /dev/null 2>&1 || {
     exit 1;
 }
 
+if [ ! -e $(python -c 'from distutils.sysconfig import get_makefile_filename as m; print m()') ]; then
+    echo "Please install Python development files (for example 'apt-get install python-dev').";
+    exit 1;
+fi
+
 type powerline > /dev/null 2>&1 || {
     echo >&2 "Please install Powerline: https://powerline.readthedocs.org/en/latest/installation.html (required for Tmux and Vim)";
     exit 1;
