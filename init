@@ -1,22 +1,23 @@
 #!/bin/bash
 
 type git > /dev/null 2>&1 || {
-    echo >&2 "Please install git.";
+    echo >&2 "Please install git. On Ubuntu: sudo apt install -y git)";
     exit 1;
 }
 
 type pip > /dev/null 2>&1 || {
-    echo >&2 "Please install pip.";
+    echo >&2 "Please install pip. On Ubuntu: sudo apt install -y python-pip";
     exit 1;
 }
 
 if [ ! -e $(python -c 'from distutils.sysconfig import get_makefile_filename as m; print m()') ]; then
-    echo "Please install Python development files (for example 'apt-get install python-dev').";
+    echo "Please install Python development files. On Ubuntu: apt install python-dev";
     exit 1;
 fi
 
 type powerline > /dev/null 2>&1 || {
-    echo >&2 "Please install Powerline: https://powerline.readthedocs.org/en/latest/installation.html (required for Tmux and Vim)";
+    echo >&2 "Please install Powerline (required for Tmux and Vim): pip install -y powerline-status"
+    echo >&2 "More info: https://powerline.readthedocs.org/en/latest/installation.html";
     exit 1;
 }
 
@@ -26,12 +27,12 @@ type wget > /dev/null 2>&1 || {
 }
 
 type ctags > /dev/null 2>&1 || {
-    echo >&2 "Please install ctags (required for Vim -> easytags).";
+    echo >&2 "Please install ctags (required for Vim -> easytags). On Ubuntu: sudo apt install -y exuberant-ctags";
     exit 1;
 }
 
 type cmake > /dev/null 2>&1 || {
-    echo >&2 "Please install cmake (required for Vim -> YouCompleteMe).";
+    echo >&2 "Please install cmake (required for Vim -> YouCompleteMe). On Ubuntu: sudo apt install -y cmake";
     exit 1;
 }
 
