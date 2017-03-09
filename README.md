@@ -1,11 +1,11 @@
 On Ubuntu install these requirements:
 
-    apt install git
-    apt install python-pip
-    apt install python-dev
-    apt install python3-pip
-    apt install python3-dev
-    apt install exuberant-ctags
-    apt install cmake
-    apt install tmux
+    apt install -y git
+    apt install -y python-pip
+    apt install -y python-dev
+    apt install -y python3-pip
+    apt install -y python3-dev
+    apt install -y exuberant-ctags
+    apt install -y cmake
+    apt install -y tmux
     pip install powerline-status
