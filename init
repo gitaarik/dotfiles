@@ -74,7 +74,7 @@ echo "sshconfig"
 echo "-------------------------"
 cd ~/dev/
 if [ ! -d bash ]; then
-    git clone git@bitbucket.org:gitaarik/sshconfig.git
+    git clone git@gitlab.com:gitaarik/sshconfig.git
 fi
 cd sshconfig
 git pull
