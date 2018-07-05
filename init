@@ -116,6 +116,17 @@ git submodule update --init --recursive
 ./init
 
 echo
+echo "terminator-config"
+echo "-------------------------"
+cd ~/dev/
+if [ ! -d tmuxconf ]; then
+    git clone git@gitlab.com:gitaarik/terminator-config.git
+fi
+cd terminator-config
+git pull
+./init
+
+echo
 echo "screenrc"
 echo "-------------------------"
 cd ~/dev/
