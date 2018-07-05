@@ -16,18 +16,15 @@ To set up workspaces for multiple monitors in Gnome:
 
           gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
 
-More info: http://gregcor.com/2011/05/07/fix-dual-monitors-in-gnome-3-aka-my-workspaces-are-broken/
+      More info: http://gregcor.com/2011/05/07/fix-dual-monitors-in-gnome-3-aka-my-workspaces-are-broken/
 
-To get rid of the Dock catching the Super+number keyboard shortcut:
+    - Then execute the following command to disable the hotkeys of the GNOME
+      Dock, so you can use the keyboard shortcuts for Super + Number to switch
+      to the workspaces:
 
-    - Open "GNOME Tweaks"
-    - Go to "Windows"
-    - Set "Window action key" to "Disabled"
-    - The changes might not be affected right away, but the following steps
-      will help with that
-    - Go to "Keyboard & Mouse"
-    - switch the "Overview Shortcut" to "Right Super" and then back to "Left Super"
-    - Now it should be fixed
+        gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
+
+      More info: https://askubuntu.com/questions/968103/disable-the-app-key-supernum-default-functionality-in-ubuntu-17-10
 
 To install the requirements on OS X:
 
