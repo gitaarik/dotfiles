@@ -18,6 +18,12 @@ To set up workspaces for multiple monitors in Gnome:
 
       More info: http://gregcor.com/2011/05/07/fix-dual-monitors-in-gnome-3-aka-my-workspaces-are-broken/
 
+    - Then execute the following command to make the app switcher only switch on current workspace:
+
+          gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+      More info: https://askubuntu.com/questions/464946/force-alt-tab-to-switch-only-on-current-workspace-in-gnome-shell
+
     - Then execute the following command to disable the hotkeys of the GNOME
       Dock, so you can use the keyboard shortcuts for Super + Number to switch
       to the workspaces:
